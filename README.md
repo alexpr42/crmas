@@ -1,36 +1,44 @@
 # CRM A/S
 
-The goal of this project is to make a CRM, Focusing on streamlining it for insurance agents.
 
+This is a CRM (Customer Relational Management) system designed to streamline workflows for insurance agents.
 
-## Github contributors:
-alexpr42
-AngelHCS
+## GitHub Contributors:
+- [alexpr42](https://github.com/alexpr42)
+- [AngelHCS](https://github.com/AngelHCS)
 
+### Project Layout:
 
-
-Project is run using run.py
-
-
-### Project structure:
-crm_project/                # Root folder of project
+```
+crm_project/                # Root directory
 │
-├── app/                    # App folder
-│   ├── __init__.py         # Starts flask app and it's extensions.
-│   ├── models.py           # Defines database models
-│   ├── routes.py           # visual routes for app.
-│   ├── auth.py             # Routes and logic for authenthication(Login/out)
-│   ├── templates/          # Folder with the HTML templates
-│   │   ├── base.html       # Base template (Other templates burrow from this)
-│   │   ├── dashboard.html  # Dashboard page (Otherwise known as control panel)
-│   │   ├── login.html      # Login page
-│   │   └── client_list.html # Page with client list template.
-│   └── static/             # Contains static files made in CSS and Javascript.
-│       ├── styles.css      # Personalized styles for the application.
-│       └── scripts.js      # Javascript scripts (Optional)
+├── app/                    # App directory
+│   ├── __init__.py         # Initializes Flask and extensions.
+│   ├── models.py           # Defines database model.
+│   ├── routes.py           # Routes for app layout.
+│   ├── auth.py             # Authentication logic.
+│   ├── templates/          # Directory containing HTML templates.
+│   │   ├── base.html       # Base HTML template.
+│   │   ├── dashboard.html  # Dashboard (contains control panel).
+│   │   ├── login.html      # Login page.
+│   │   └── client_list.html# Page with client list.
+│   └── static/             # Static files (CSS, JS).
+│       ├── styles.css      # Custom styles for the application.
+│       └── scripts.js      # JavaScript scripts (optional).
 │
-├── config.py               # App config (Contains the database, passwords, etc.)
-├── requirements.txt        # Text file with a list of dependencies
-├── run.py                  # File that runs the flask file.
-└── README.md               # This file, contains basic information about the application.
+├── config.py               # Application configuration (database, passwords, etc.).
+├── requirements.txt        # Project dependencies.
+├── run.py                  # Runs the Flask application.
+```
 
+
+
+#### Getting Started
+1. Get the repository from github, you can find it easier by searching our profiles
+2. Install the dependencies listed in the requirements.txt file
+3. Use the run.py file to run the app.
+
+
+
+#### License
+(TBD)
