@@ -1,5 +1,6 @@
 # CRM A/S
 
+
 This is a CRM (Customer Relational Management) system designed to streamline workflows for insurance agents.
 
 ## GitHub Contributors:
@@ -41,9 +42,3 @@ crm_project/                # Root directory
 
 #### License
 (TBD)
-
-
-
-
-
-
