@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center mt-5 py-5 bg-light">
+    <h1 class="display-4">Welcome to Your Dashboard!</h1>
+    <p class="lead">This is the main control panel where you can manage your clients, leads, and deals efficiently.</p>
+    <hr class="my-4">
+    <p>Use the navigation above to access different CRM features.</p>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title">Clients</h3>
+                    <p class="card-text">Manage all your clients. Add, update, or delete client information as needed.</p>
+                    <a class="btn btn-primary btn-block" href="{{ url_for('list_clients') }}">
+                        <i class="fas fa-users"></i> Manage Clients
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title">Leads</h3>
+                    <p class="card-text">View and convert leads to deals. Track their status in the pipeline.</p>
+                    <a class="btn btn-primary btn-block" href="{{ url_for('list_leads') }}">
+                        <i class="fas fa-user-plus"></i> Manage Leads
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <h3 class="card-title">Deals</h3>
+                    <p class="card-text">Monitor the status of your deals, including policy numbers and renewal dates.</p>
+                    <a class="btn btn-primary btn-block" href="{{ url_for('list_deals') }}">
+                        <i class="fas fa-handshake"></i> Manage Deals
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}

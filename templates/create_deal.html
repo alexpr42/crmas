@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Deal - CRM A/S</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0">Create New Deal</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="form-group">
+                        {{ form.policy_number.label(class="font-weight-bold") }}
+                        {{ form.policy_number(class="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.insurer.label(class="font-weight-bold") }}
+                        {{ form.insurer(class="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.product_category.label(class="font-weight-bold") }}
+                        {{ form.product_category(class="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.start_date.label(class="font-weight-bold") }}
+                        {{ form.start_date(class="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.renewal_date.label(class="font-weight-bold") }}
+                        {{ form.renewal_date(class="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.comments.label(class="font-weight-bold") }}
+                        {{ form.comments(class="form-control", rows="3") }}
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block">Create Deal</button>
+                    <a href="{{ url_for('list_deals') }}" class="btn btn-secondary btn-block mt-2">Back to Deals</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

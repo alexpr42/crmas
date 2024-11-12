@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Clients - CRM A/S{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-3">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container text-center">
+                <img src="{{ url_for('static', filename='images/CRM_AS.png') }}" alt="CRM A/S Logo" class="logo img-fluid mb-3">
+                <h1>CRM A/S</h1>
+                <p class="tagline">The Streamlined CRM for Insurance Agents</p>
+            </div>
+            <nav class="nav-links mt-4">
+                <a href="{{ url_for('dashboard') }}" class="d-block">Dashboard</a>
+                <a href="{{ url_for('list_clients') }}" class="d-block">View Clients</a>
+                <a href="{{ url_for('list_leads') }}" class="d-block">View Leads</a>
+                <a href="{{ url_for('list_deals') }}" class="d-block">View Deals</a>
+                <a href="{{ url_for('logout') }}" class="d-block">Logout</a>
+            </nav>
+        </aside>
+    </div>
+
+    <div class="col-md-9">
+        <!-- Main Content -->
+        <header class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Clients</h2>
+            <form action="{{ url_for('list_clients') }}" method="get" class="form-inline">
+                <input type="text" name="search" class="form-control mr-2" placeholder="Search by name" value="{{ request.args.get('search', '') }}">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </header>
+
+        <section class="client-list">
+            {% if clients %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered clients-table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for client in clients %}
+                                <tr>
+                                    <td>{{ client.name }}</td>
+                                    <td>{{ client.email }}</td>
+                                    <td>{{ client.phone }}</td>
+                                    <td>{{ client.created_at.strftime('%Y-%m-%d') }}</td>
+                                    <td class="text-center action-buttons">
+                                        <a href="{{ url_for('view_client', client_id=client.id) }}" class="btn btn-info btn-sm" title="View Client Details">View</a>
+                                        <a href="{{ url_for('convert_client_to_lead', client_id=client.id) }}" class="btn btn-warning btn-sm" title="Convert to Lead">Convert to Lead</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-muted">No clients found.</p>
+            {% endif %}
+        </section>
+    </div>
+</div>
+
+<style>
+    /* Additional styling for client table and buttons */
+    .clients-table th, .clients-table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .action-buttons .btn {
+        margin-right: 5px;
+    }
+</style>
+{% endblock %}

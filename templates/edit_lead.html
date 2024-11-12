@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Lead - CRM A/S{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
+        <header class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Edit Lead</h2>
+            <a href="{{ url_for('list_leads') }}" class="btn btn-secondary">Back to Lead List</a>
+        </header>
+
+        <section class="form-section">
+            <form action="{{ url_for('edit_lead', lead_id=lead.id) }}" method="POST">
+                {{ form.hidden_tag() }}
+                
+                <div class="form-group">
+                    {{ form.name.label(class="form-label") }}
+                    {{ form.name(class="form-control", size=32) }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.status.label(class="form-label") }}
+                    {{ form.status(class="form-control") }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.phone.label(class="form-label") }}
+                    {{ form.phone(class="form-control", size=32) }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control", size=32) }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.address.label(class="form-label") }}
+                    {{ form.address(class="form-control", size=32) }}
+                </div>
+                
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+            </form>
+        </section>
+    </div>
+</div>
+{% endblock %}

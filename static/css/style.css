@@ -1,0 +1,253 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Container */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background-color: #2a3f54;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+}
+
+.logo-container h1 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.tagline {
+    font-size: 0.85em;
+    color: #cccccc;
+}
+
+.nav-links {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: #b1c4d6;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    background-color: #1a2733;
+    color: #66ff66;
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+.header {
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 2em;
+    color: #2a3f54;
+}
+
+.header p {
+    font-size: 1em;
+    color: #666666;
+}
+
+/* Admin Options */
+.admin-options h3 {
+    font-size: 1.5em;
+    color: #2a3f54;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.option-card {
+    flex: 1 1 30%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    color: #333333;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.option-card h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #2a3f54;
+}
+
+.option-card p {
+    font-size: 0.9em;
+    color: #666666;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    text-align: left;
+}
+
+.table th {
+    background-color: #2a3f54;
+    color: white;
+}
+
+.table td {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Action Links */
+.action-link {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.convert-link {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.convert-link:hover {
+    text-decoration: underline;
+}
+
+/* Comments Section */
+.comments {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comments h3 {
+    color: #2a3f54;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.comments-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.comments-list li {
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comments-list li p {
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.comments-list li small {
+    color: #666666;
+    font-size: 0.85em;
+}
+
+.add-comment-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-comment-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2a3f54;
+}
+
+.add-comment-form textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+.add-comment-form button {
+    align-self: flex-start;
+    background-color: #2a3f54;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-comment-form button:hover {
+    background-color: #1a2733;
+}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Client Details - CRM A/S{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
+        <header class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Client Details</h2>
+            <a href="{{ url_for('list_clients') }}" class="btn btn-secondary">Back to Client List</a>
+        </header>
+
+        <!-- Client Information Section -->
+        <section class="client-details card mb-4 p-4">
+            <h3>{{ client.name }}</h3>
+            <p><strong>Email:</strong> {{ client.email }}</p>
+            <p><strong>Phone:</strong> {{ client.phone }}</p>
+            <p><strong>Address:</strong> {{ client.address }}</p>
+            <p><strong>Created At:</strong> {{ client.created_at.strftime('%Y-%m-%d') }}</p>
+            <div class="actions mt-3">
+                <a href="{{ url_for('convert_client_to_lead', client_id=client.id) }}" class="btn btn-primary">Convert to Lead</a>
+            </div>
+        </section>
+
+        <!-- Associated Leads Section -->
+        <section class="client-leads card mb-4 p-4">
+            <h3>Associated Leads</h3>
+            {% if client.leads %}
+                <ul class="list-group">
+                    {% for lead in client.leads %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>{{ lead.name }}</strong> - Status: {{ lead.status }}
+                            </div>
+                            <a href="{{ url_for('view_lead', lead_id=lead.id) }}" class="btn btn-outline-info btn-sm">View</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">No leads associated with this client.</p>
+            {% endif %}
+        </section>
+
+        <!-- Associated Deals Section -->
+        <section class="client-deals card mb-4 p-4">
+            <h3>Associated Deals</h3>
+            {% if client.deals %}
+                <ul class="list-group">
+                    {% for deal in client.deals %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Policy #{{ deal.policy_number }}</strong> - Start: {{ deal.start_date }} / Renewal: {{ deal.renewal_date }}
+                            </div>
+                            <a href="{{ url_for('view_deal', deal_id=deal.id) }}" class="btn btn-outline-info btn-sm">View</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">No deals associated with this client.</p>
+            {% endif %}
+        </section>
+
+        <!-- Comments Section for Deals -->
+        <section class="deal-comments card mb-4 p-4">
+            <h3>Comments</h3>
+            {% if client.deals %}
+                {% for deal in client.deals %}
+                    <div class="mb-3">
+                        <h4>Comments for Policy #{{ deal.policy_number }}</h4>
+                        <ul class="list-group mb-2">
+                            {% for comment in deal.comments %}
+                                <li class="list-group-item">
+                                    <strong>{{ comment.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</strong>: {{ comment.content }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                        <!-- Add new comment form -->
+                        <form method="post" action="{{ url_for('view_deal', deal_id=deal.id) }}">
+                            {{ form.hidden_tag() }}
+                            <div class="form-group">
+                                <label for="content">New Comment:</label>
+                                {{ form.content(class="form-control", rows=2) }}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Comment</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-muted">No comments available for this client’s deals.</p>
+            {% endif %}
+        </section>
+    </div>
+</div>
+{% endblock %}

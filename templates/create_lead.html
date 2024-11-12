@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Lead - CRM A/S</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0">Create New Lead</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.name.label(class="font-weight-bold") }}
+                        {{ form.name(class="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.status.label(class="font-weight-bold") }}
+                        {{ form.status(class="form-control") }}
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block">Create Lead</button>
+                    <a href="{{ url_for('list_leads') }}" class="btn btn-secondary btn-block mt-2">Back to Leads</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
